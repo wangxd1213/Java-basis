@@ -22,10 +22,11 @@ public class ThreadAndRunnable {
 	}
 
 	static class MyThread extends Thread {
+		private boolean running=true;
 		private int ticket = 10;
 
 		public void run(){
-			for(int i=0;i<20;i++){
+			while(running){
 				if(this.ticket>0){
 					try {
 						Thread.sleep(500);
@@ -34,6 +35,9 @@ public class ThreadAndRunnable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				}
+				else{
+					running = false;
 				}
 			}
 		}
@@ -45,10 +49,11 @@ public class ThreadAndRunnable {
 	 *
 	 */
 	static class MyRunnable implements Runnable {
+		private boolean running=true;
 		private int ticket = 10;
 
 		public void run() {
-			for (int i = 0; i < 20; i++) {
+			while(running){
 				if (this.ticket > 0) {
 					try {
 						Thread.sleep(500);
@@ -58,15 +63,19 @@ public class ThreadAndRunnable {
 						e.printStackTrace();
 					}
 				}
+				else{
+					running = false;
+				}
 			}
 		}
 	}
 	
 	static class MyRunnable1 implements Runnable {
+		private boolean running=true;
 		private int ticket = 10;
 
 		public synchronized void run() {
-			for (int i = 0; i < 20; i++) {
+			while(running){
 				if (this.ticket > 0) {
 					try {
 						Thread.sleep(500);
@@ -75,6 +84,9 @@ public class ThreadAndRunnable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				}
+				else{
+					running = false;
 				}
 			}
 		}
