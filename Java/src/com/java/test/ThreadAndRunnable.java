@@ -33,6 +33,7 @@ public class ThreadAndRunnable {
 						System.out.println("卖票：ticket"+this.ticket--);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
+						running = false;
 						e.printStackTrace();
 					}
 				}
@@ -60,6 +61,7 @@ public class ThreadAndRunnable {
 						System.out.println("卖票：ticket" + this.ticket--);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
+						running = false;
 						e.printStackTrace();
 					}
 				}
@@ -82,6 +84,7 @@ public class ThreadAndRunnable {
 						System.out.println("卖票：ticket" + this.ticket--);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
+						running = false;
 						e.printStackTrace();
 					}
 				}
